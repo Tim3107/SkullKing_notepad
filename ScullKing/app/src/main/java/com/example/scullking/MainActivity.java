@@ -73,14 +73,6 @@ public class MainActivity extends AppCompatActivity {
                 }
                 break;
             }
-            //screen after game is finished
-            case (2) : {
-                if (resultCode == Activity.RESULT_OK) {
-                    // TODO Extract the data returned from the child Activity.
-                    //this.names = data.
-                }
-                break;
-            }
 
         }
     }

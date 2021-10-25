@@ -235,14 +235,6 @@ public class Activity_game_screen_terminal extends AppCompatActivity {
             players[i] = new Player(i,names[i],0);
             this.risky_zeros[i] = false;
         }
-        System.out.println("Wir geben hier aus: " + Integer.toString(R.id.button_next_round));
-        //for (int i = 0;i<10;i++){
-        //    for (int j = 0;j<6;j++){
-        //        TextView temp;
-        //        temp = (TextView) this.findViewById(R.id.field11);//(1000000+this.text_view_IDs[i][j]);
-        //        textViews[i][j] = temp;
-        //    }
-        //}
         this.intent_end_screen = new Intent(this,Activity_end_screen.class);
         this.intent_called_tricks = new Intent(this,Activity_called_tricks.class);
         this.intent_actual_tricks = new Intent(this,Activity_set_actual_tricks.class);
@@ -273,7 +265,6 @@ public class Activity_game_screen_terminal extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
         super.onActivityResult(requestCode, resultCode, data);
-        System.out.println(resultCode+"wertzuiopü");
         switch(requestCode) {
             case (4) : {
                 if (resultCode == Activity.RESULT_OK) {
@@ -281,11 +272,9 @@ public class Activity_game_screen_terminal extends AppCompatActivity {
                     // TODO Extract the data returned from the child Activity.
                     this.called_tricks = data.getIntArrayExtra("called_tricks");
                     game.set_called_tricks(this.called_tricks);
-                    System.out.println("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT");
                     this.intent_actual_tricks.putExtra("number_of_players",this.number_of_players);
                     this.intent_actual_tricks.putExtra("names",this.names);
                     this.intent_actual_tricks.putExtra("round",this.game.get_round());
-                    System.out.println("3333333333333333333333333333333333333: "+Integer.toString(this.called_tricks[0]));
                     startActivityForResult(this.intent_actual_tricks,10);
 
                 }
@@ -295,8 +284,6 @@ public class Activity_game_screen_terminal extends AppCompatActivity {
                 if (resultCode == Activity.RESULT_OK) {
                     // TODO Extract the data returned from the child Activity.
                     this.actual_tricks = data.getIntArrayExtra("actual_tricks");
-                    System.out.println("9999999999999999999999999999999999999999999999: "+Integer.toString(this.actual_tricks[0]));
-                    System.out.println("9999999999999999999999999999999999999999999999: "+Integer.toString(this.called_tricks[0]));
                     game.set_actual_tricks(this.actual_tricks);
                     this.intent_bonus_points_screen.putExtra("number_of_players",this.number_of_players);
                     this.intent_bonus_points_screen.putExtra("names",this.names);
@@ -317,7 +304,6 @@ public class Activity_game_screen_terminal extends AppCompatActivity {
                     game.run_round();
                     this.set_points_in_table();
                     this.game.increment_round();
-                    System.out.println("Die aktuelle RUnden zahl beträgt: " + Integer.toString(this.game.get_round()));
 
                     if(game.get_round()> 10){
                         Intent parameters = new Intent();
@@ -343,7 +329,6 @@ public class Activity_game_screen_terminal extends AppCompatActivity {
 
             case (11) : {
                 if (resultCode == Activity.RESULT_OK) {
-                    System.out.println("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT");
                     finish();
 
                 }
@@ -354,9 +339,7 @@ public class Activity_game_screen_terminal extends AppCompatActivity {
 
     public void set_points_in_table(){
         int position = game.get_round() - 1;
-        System.out.println("Die aktuelle Runde: " + Integer.toString(position));
         for (int i = 0;i<this.number_of_players;i++){
-            //System.out.println("Die interessanten Zahlen sind: " +Integer.toString(round)+ Integer.toString(i));
             this.textViews[position][i].setText(Integer.toString(game.get_player_points(i)));
 
         }

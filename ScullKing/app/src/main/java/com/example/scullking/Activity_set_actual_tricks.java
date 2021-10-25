@@ -35,13 +35,6 @@ public class Activity_set_actual_tricks extends AppCompatActivity {
 
     private TextView[] textViews_actual_progress;
 
-    //private EditText editText_call_1;
-    //private EditText editText_call_2;
-    //private EditText editText_call_3;
-    //private EditText editText_call_4;
-    //private EditText editText_call_5;
-    //private EditText editText_call_6;
-
     private EditText[] editTexts;
 
     private TextView textView_name_actual_1;
@@ -65,13 +58,11 @@ public class Activity_set_actual_tricks extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_actual_tricks);
-        System.out.println("OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
         this.get_intent = getIntent();
 
         this.number_of_players = this.get_intent.getIntExtra("number_of_players",3);
         this.names = this.get_intent.getStringArrayExtra("names");
         this.round = this.get_intent.getIntExtra("round",1);
-        System.out.println("VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV"+this.names[0]);
         this.button_return = (Button) this.findViewById(R.id.Button_return_actual_tricks);
         this.textView_error = (TextView) this.findViewById(R.id.textView_error);
 
@@ -92,15 +83,6 @@ public class Activity_set_actual_tricks extends AppCompatActivity {
         this.textView_actual_progress_6 = (TextView) this.findViewById(R.id.textView_actual_progress_6);
 
         this.textViews_actual_progress = new TextView[]{this.textView_actual_progress_1,this.textView_actual_progress_2,this.textView_actual_progress_3,this.textView_actual_progress_4,this.textView_actual_progress_5,this.textView_actual_progress_6};
-
-        //this.editText_call_1 = (EditText) this.findViewById(R.id.editTextTextPerson1);
-        //this.editText_call_2 = (EditText) this.findViewById(R.id.editTextTextPerson2);
-        //this.editText_call_3 = (EditText) this.findViewById(R.id.editTextTextPerson3);
-        //this.editText_call_4 = (EditText) this.findViewById(R.id.editTextTextPerson4);
-        //this.editText_call_5 = (EditText) this.findViewById(R.id.editTextTextPerson5);
-        //this.editText_call_6 = (EditText) this.findViewById(R.id.editTextTextPerson6);
-
-        //editTexts = new EditText[]{editText_call_1,editText_call_2,editText_call_3,editText_call_4,editText_call_5,editText_call_6};
 
         this.textView_name_actual_1 = (TextView) this.findViewById(R.id.textView_actual_1);
         this.textView_name_actual_2 = (TextView) this.findViewById(R.id.textView_actual_2);
@@ -249,12 +231,11 @@ public class Activity_set_actual_tricks extends AppCompatActivity {
         }
         int sum_of_tricks = 0;
         for (int i = 0;i<this.number_of_players;i++){
-            sum_of_tricks += this.actual_tricks[i];// = (int) (this.seekBars_actual[i].getProgress()/10.0*round);
+            sum_of_tricks += this.actual_tricks[i];
         }
 
         if(sum_of_tricks == this.round) {
 
-            System.out.println("Heheyh: " + Integer.toString(this.actual_tricks[0]));
             Intent intent_return = new Intent();
             intent_return.putExtra("actual_tricks", this.actual_tricks);
             setResult(Activity.RESULT_OK, intent_return);

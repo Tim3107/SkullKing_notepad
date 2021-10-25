@@ -19,13 +19,6 @@ public class Activity_called_tricks extends AppCompatActivity {
 
     private String[] names;
 
-    //private EditText editText_called_1;
-    //private EditText editText_called_2;
-    //private EditText editText_called_3;
-    //private EditText editText_called_4;
-    //private EditText editText_called_5;
-    //private EditText editText_called_6;
-
     private SeekBar seekBar_called_1;
     private SeekBar seekBar_called_2;
     private SeekBar seekBar_called_3;
@@ -48,7 +41,6 @@ public class Activity_called_tricks extends AppCompatActivity {
     private TextView textView_called_progress_5;
     private TextView textView_called_progress_6;
 
-    //private EditText[] editTexts;
     private SeekBar[] seekBars;
     private TextView[] textViews_names;
     private TextView[] textViews_progress_called;
@@ -66,15 +58,6 @@ public class Activity_called_tricks extends AppCompatActivity {
         this.number_of_players = this.get_intent.getIntExtra("number_of_players",3);
         this.names = this.get_intent.getStringArrayExtra("names");
         this.round = this.get_intent.getIntExtra("round",1);
-
-        //this.editText_called_1 = (EditText) this.findViewById(R.id.calledtricksplayer1);
-        //this.editText_called_2 = (EditText) this.findViewById(R.id.calledtricksplayer2);
-        //this.editText_called_3 = (EditText) this.findViewById(R.id.calledtricksplayer3);
-        //this.editText_called_4 = (EditText) this.findViewById(R.id.calledtricksplayer4);
-        //this.editText_called_5 = (EditText) this.findViewById(R.id.calledtricksplayer5);
-        //this.editText_called_6 = (EditText) this.findViewById(R.id.calledtricksplayer6);
-
-        //editTexts = new EditText[]{editText_called_1,editText_called_2,editText_called_3,editText_called_4,editText_called_5,editText_called_6};
 
         this.seekBar_called_1 = (SeekBar) this.findViewById(R.id.seekBar_called_1);
         this.seekBar_called_2 = (SeekBar) this.findViewById(R.id.seekBar_called_2);
@@ -238,7 +221,6 @@ public class Activity_called_tricks extends AppCompatActivity {
             this.called_tricks[i] = (int) (this.seekBars[i].getProgress()/10.0*round);
         }
 
-        System.out.println("Heheyh: "+Integer.toString(this.called_tricks[0]));
         Intent intent_return = new Intent();
         intent_return.putExtra("called_tricks",this.called_tricks);
         setResult(Activity.RESULT_OK,intent_return);

@@ -65,7 +65,7 @@ public class Activity_end_screen extends AppCompatActivity {
         String[] sorted_names = get_intent.getStringArrayExtra("sorted_names");
         this.number_of_players = get_intent.getIntExtra("number_of_players",3);
 
-        //this.end_textView.setText("Congratulations you pirates! Hope to see you soon!");
+        this.end_textView.setText("Yo-Ho-Ho the next battle is still waiting");
 
         this.end_button.setOnClickListener(new View.OnClickListener() {
             @Override
