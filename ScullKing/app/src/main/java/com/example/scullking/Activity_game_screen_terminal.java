@@ -312,6 +312,7 @@ public class Activity_game_screen_terminal extends AppCompatActivity {
                     boolean[] risky_zeros_bonus = data.getBooleanArrayExtra("risky_zeros");
                     this.bonus_points = data.getIntArrayExtra("bonus_points");
                     this.game.set_bonus_points(this.bonus_points,risky_zeros_bonus);
+                    this.update_risky_zeros(risky_zeros_bonus);
 
                     game.run_round();
                     this.set_points_in_table();

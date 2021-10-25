@@ -15,6 +15,7 @@ import java.net.Inet4Address;
 
 public class Activity_set_actual_tricks extends AppCompatActivity {
     private Button button_return;
+    private TextView textView_error;
 
     private SeekBar seekBar_actual_1;
     private SeekBar seekBar_actual_2;
@@ -72,6 +73,7 @@ public class Activity_set_actual_tricks extends AppCompatActivity {
         this.round = this.get_intent.getIntExtra("round",1);
         System.out.println("VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV"+this.names[0]);
         this.button_return = (Button) this.findViewById(R.id.Button_return_actual_tricks);
+        this.textView_error = (TextView) this.findViewById(R.id.textView_error);
 
         this.seekBar_actual_1 = (SeekBar) this.findViewById(R.id.seekBar1);
         this.seekBar_actual_2 = (SeekBar) this.findViewById(R.id.seekBar3);
@@ -245,10 +247,23 @@ public class Activity_set_actual_tricks extends AppCompatActivity {
         for (int i = 0;i<this.number_of_players;i++){
             this.actual_tricks[i] = (int) (this.seekBars_actual[i].getProgress()/10.0*round);
         }
-        System.out.println("Heheyh: "+Integer.toString(this.actual_tricks[0]));
-        Intent intent_return = new Intent();
-        intent_return.putExtra("actual_tricks",this.actual_tricks);
-        setResult(Activity.RESULT_OK,intent_return);
-        finish();
+        int sum_of_tricks = 0;
+        for (int i = 0;i<this.number_of_players;i++){
+            sum_of_tricks += this.actual_tricks[i];// = (int) (this.seekBars_actual[i].getProgress()/10.0*round);
+        }
+
+        if(sum_of_tricks == this.round) {
+
+            System.out.println("Heheyh: " + Integer.toString(this.actual_tricks[0]));
+            Intent intent_return = new Intent();
+            intent_return.putExtra("actual_tricks", this.actual_tricks);
+            setResult(Activity.RESULT_OK, intent_return);
+            finish();
+        }
+
+        else{
+            this.textView_error.setBackgroundResource(R.color.black);
+            this.textView_error.setText("The amount of tricks " + Integer.toString(sum_of_tricks) +" and the current round  " +Integer.toString(this.round) +" do not match! \n Please correct your inputs.");
+        }
     }
 }

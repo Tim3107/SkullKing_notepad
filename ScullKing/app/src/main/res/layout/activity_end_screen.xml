@@ -54,7 +54,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginEnd="84dp"
             android:textAlignment="center"
-            android:textColor="#0E0E0E"
+            android:textColor="#F6F5F5"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/points4" />
 
@@ -64,7 +64,7 @@
             android:layout_height="34dp"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="84dp"
-            android:textColor="#050505"
+            android:textColor="#FDFCFC"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/points5" />
 
@@ -138,13 +138,13 @@
             android:id="@+id/textView_end_screen"
             android:layout_width="289dp"
             android:layout_height="22dp"
+            android:layout_marginTop="155dp"
             android:layout_marginEnd="84dp"
-            android:layout_marginBottom="164dp"
             android:textAlignment="center"
             android:textColor="#F8F4F4"
             android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/points6" />
 
         <TextView
             android:id="@+id/names1"
