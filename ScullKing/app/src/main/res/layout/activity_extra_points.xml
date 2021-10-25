@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity_extra_points"
+    android:background="@drawable/blackone">
+
+    <CheckBox
+        android:id="@+id/checkBox_6"
+        android:layout_width="55dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_5" />
+
+    <CheckBox
+        android:id="@+id/checkBox_5"
+        android:layout_width="55dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_4" />
+
+    <CheckBox
+        android:id="@+id/checkBox_4"
+        android:layout_width="55dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_3" />
+
+    <CheckBox
+        android:id="@+id/checkBox_3"
+        android:layout_width="55dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_2" />
+
+    <CheckBox
+        android:id="@+id/checkBox_2"
+        android:layout_width="55dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox_1" />
+
+    <EditText
+        android:id="@+id/editText_bonus_6"
+        android:layout_width="145dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="90dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="0"
+        android:textAlignment="center"
+        android:textColor="#FBFBFB"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_bonus_5" />
+
+    <EditText
+        android:id="@+id/editText_bonus_5"
+        android:layout_width="145dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginEnd="90dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="0"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_bonus_4" />
+
+    <EditText
+        android:id="@+id/editText_bonus_4"
+        android:layout_width="145dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="33dp"
+        android:layout_marginEnd="90dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="0"
+        android:textAlignment="center"
+        android:textColor="#FAFAFA"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_bonus_3" />
+
+    <EditText
+        android:id="@+id/editText_bonus_3"
+        android:layout_width="145dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="90dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="0"
+        android:textAlignment="center"
+        android:textColor="#FAF8F8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_bonus_2" />
+
+    <EditText
+        android:id="@+id/editText_bonus_2"
+        android:layout_width="145dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginEnd="90dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="0"
+        android:textAlignment="center"
+        android:textColor="#FDFCFC"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_bonus_1" />
+
+    <TextView
+        android:id="@+id/textView_bonus_names_6"
+        android:layout_width="137dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:textAlignment="center"
+        android:textColor="#F8F5F5"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_bonus_names_5" />
+
+    <TextView
+        android:id="@+id/textView_bonus_names_5"
+        android:layout_width="137dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:textAlignment="center"
+        android:textColor="#F4F4F4"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_bonus_names_4" />
+
+    <TextView
+        android:id="@+id/textView_bonus_names_4"
+        android:layout_width="137dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:textAlignment="center"
+        android:textColor="#F6F6F6"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_bonus_names_3" />
+
+    <TextView
+        android:id="@+id/textView_bonus_names_3"
+        android:layout_width="137dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:textAlignment="center"
+        android:textColor="#FAFAFA"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_bonus_names_2" />
+
+    <TextView
+        android:id="@+id/textView_bonus_names_1"
+        android:layout_width="137dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="84dp"
+        android:textAlignment="center"
+        android:textColor="#F6F6F6"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_bonus_names_2"
+        android:layout_width="137dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="36dp"
+        android:textAlignment="center"
+        android:textColor="#FAFAFA"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_bonus_names_1" />
+
+    <EditText
+        android:id="@+id/editText_bonus_1"
+        android:layout_width="145dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="90dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="0"
+        android:textAlignment="center"
+        android:textColor="#FAF7F7"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/Button_bonus_set"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="67dp"
+        android:layout_marginBottom="40dp"
+        android:text="OK"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <CheckBox
+        android:id="@+id/checkBox_1"
+        android:layout_width="55dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

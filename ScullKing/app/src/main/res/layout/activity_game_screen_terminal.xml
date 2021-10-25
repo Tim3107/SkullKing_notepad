@@ -1,0 +1,1166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/field31"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity_game_screen_terminal"
+    android:background="@drawable/mermaid">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="40dp"
+        android:background="@android:color/transparent">
+
+        <TableRow android:background="@android:color/transparent">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:background="@android:color/transparent"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:textColor="@android:color/background_dark"
+                android:textColorLink="#00BCD4"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/name_1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:background="@android:color/transparent"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/name_2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:background="@android:color/transparent"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/name_3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:background="@android:color/transparent"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/name_4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/name_5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/name_6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+            </TextView>
+
+        </TableRow>
+
+        <TableRow android:background="@android:color/transparent">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:background="@android:color/transparent"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="1"
+                android:textColor="@android:color/white"
+                android:textSize="14sp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field11"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:background="@android:color/transparent"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col1"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field12"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:background="@android:color/transparent"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col1"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field13"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:background="@android:color/transparent"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col1"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field14"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:background="@android:color/transparent"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col1"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field15"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:background="@android:color/transparent"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col1"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field16"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col1"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+
+        </TableRow>
+
+        <TableRow android:background="@android:color/transparent">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="2"
+                android:textColor="@android:color/white"
+                android:textSize="14sp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field21"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col1"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field22"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col1"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field23"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col1"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field24"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col1"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field25"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col1"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field26"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col1"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+
+        </TableRow>
+
+        <TableRow android:background="@android:color/transparent">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:background="@android:color/transparent"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="3"
+                android:textColor="@android:color/white"
+                android:textSize="14sp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/l"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col2"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field32"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col2"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field33"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:background="@android:color/transparent"
+                android:text="@string/col2"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field34"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col2"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field35"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:background="@android:color/transparent"
+                android:padding="10sp"
+                android:text="@string/col2"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field36"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col2"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+
+        </TableRow>
+
+        <TableRow android:background="@android:color/transparent">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:background="@android:color/transparent"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="4"
+                android:textColor="@android:color/white"
+                android:textSize="14sp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field41"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col3"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field42"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col3"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field43"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:background="@android:color/transparent"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col3"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field44"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col3"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field45"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:background="@android:color/transparent"
+                android:padding="10sp"
+                android:text="@string/col3"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field46"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col3"
+                android:background="@android:color/transparent"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+
+        </TableRow>
+
+        <TableRow android:background="@android:color/transparent">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="5"
+                android:textColor="@android:color/white"
+                android:textSize="14sp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field51"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col4"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field52"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:background="@android:color/transparent"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col4"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field53"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:background="@android:color/transparent"
+                android:text="@string/col4"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field54"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:background="#07000000"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col4"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field55"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:background="@android:color/transparent"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col4"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field56"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:background="#07000000"
+                android:padding="10sp"
+                android:text="@string/col4"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+
+        </TableRow>
+
+        <TableRow android:background="@android:color/transparent">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="6"
+                android:textColor="@android:color/white"
+                android:textSize="14sp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field61"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="#07000000"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col5"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field62"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:background="#07000000"
+                android:padding="10sp"
+                android:text="@string/col5"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field63"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:background="#07000000"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col5"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field64"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col5"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field65"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col5"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field66"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col5"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+
+        </TableRow>
+
+        <TableRow android:background="@android:color/transparent">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="7"
+                android:textColor="@android:color/white"
+                android:textSize="14sp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field71"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col6"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field72"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col6"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field73"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col6"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field74"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col6"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field75"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col6"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field76"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col6"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+
+        </TableRow>
+
+        <TableRow android:background="@android:color/transparent">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:background="@android:color/transparent"
+                android:padding="10sp"
+                android:text="8"
+                android:textColor="@android:color/white"
+                android:textSize="14sp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field81"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col7"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field82"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col7"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field83"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col7"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field84"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col7"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field85"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col7"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field86"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col7"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+
+        </TableRow>
+
+        <TableRow android:background="@android:color/transparent">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="9"
+                android:textColor="@android:color/white"
+                android:textSize="14sp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field91"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col8"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field92"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col8"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field93"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col8"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field94"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col8"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field95"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col8"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field96"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col8"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+
+        </TableRow>
+
+        <TableRow android:background="@android:color/transparent">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="10"
+                android:textColor="@android:color/white"
+                android:textSize="14sp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field101"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col9"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field102"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col9"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field103"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col9"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field104"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col9"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field105"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col9"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/field106"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text="@string/col9"
+                android:textColor="@color/white"
+                android:textSize="14sp">
+
+
+            </TextView>
+
+
+        </TableRow>
+
+
+    </TableLayout>
+
+
+    <Button
+        android:id="@+id/button_next_round"
+        android:layout_width="170dp"
+        android:layout_height="56dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="57dp"
+        android:text="Next Round"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</RelativeLayout>
