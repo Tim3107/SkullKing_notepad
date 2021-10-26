@@ -39,7 +39,7 @@ public class Game {
         this.gui = gui;
         this.number_of_players = number_of_players;
         this.player_list = player_list;
-        this.round = 0;
+        this.round = 1;
         points = new int[10][this.number_of_players];
         this.risky_zero_param  = false;
         this.called_tricks = new int[this.number_of_players];
@@ -96,10 +96,10 @@ public class Game {
             }
             else {
                 if(!risky_zero){
-                    return this.round*10;
+                    return this.round*-10;
                 }
                 else{
-                    return this.round*10 - 50;
+                    return this.round*-10 - 50;
                 }
             }
         }
@@ -171,6 +171,23 @@ public class Game {
             sorted_players[i] = player_list[points_pairs[i][1]];
         }
         return sorted_players;
+    }
+
+    public void correction(){
+
+        for (int i = 0; i<this.number_of_players;i++){
+            this.points[this.round-1][i] = 0;
+            this.player_list[i].correction(this.round);
+        }
+        this.round --;
+    }
+
+    public void set_zero(){
+        for (int i = 0; i<6;i++){
+            this.called_tricks[i] = 0;
+            this.actual_tricks[i] = 0;
+            this.bonus_points[i] = 0;
+        }
     }
 
 }

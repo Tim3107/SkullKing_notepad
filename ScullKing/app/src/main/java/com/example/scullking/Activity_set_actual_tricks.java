@@ -244,7 +244,7 @@ public class Activity_set_actual_tricks extends AppCompatActivity {
 
         else{
             this.textView_error.setBackgroundResource(R.color.black);
-            this.textView_error.setText("The amount of tricks " + Integer.toString(sum_of_tricks) +" and the current round  " +Integer.toString(this.round) +" do not match! \n Please correct your inputs.");
+            this.textView_error.setText("The amount of tricks " + Integer.toString(sum_of_tricks) +" \n and the current round  " +Integer.toString(this.round) +" do not match! \n Please correct your inputs.");
         }
     }
 }

@@ -21,6 +21,7 @@ public class Activity_game_screen_terminal extends AppCompatActivity {
     private int[] called_tricks;
     private int[] actual_tricks;
     private Button button_next_round;
+    private Button button_correction;
     private Intent intent_called_tricks;
     private Intent intent_actual_tricks;
     private Intent intent_end_screen;
@@ -225,6 +226,13 @@ public class Activity_game_screen_terminal extends AppCompatActivity {
                 start_new_round();
             }
         });
+        this.button_correction = (Button) this.findViewById(R.id.button_correction);
+        this.button_correction.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                correction_step();
+            }
+        });
 
         this.number_of_players = intent_got.getIntExtra("number_of_players",3);
         this.names = intent_got.getStringArrayExtra("names");
@@ -353,4 +361,14 @@ public class Activity_game_screen_terminal extends AppCompatActivity {
             }
         }
     }
+
+    public void correction_step() {
+        if (this.game.get_round() > 1) {
+            game.correction();
+            for (int i = 0; i < this.number_of_players; i++) {
+                this.textViews[this.game.get_round() - 1][i].setText("");
+            }
+        }
+    }
 }
+

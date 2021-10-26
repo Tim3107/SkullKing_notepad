@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/cortuga">
+    android:background="@drawable/scully">
 
 
     <SeekBar
@@ -21,7 +21,7 @@
 
     <TextView
         android:id="@+id/textView_called_progress_6"
-        android:layout_width="120dp"
+        android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="10dp"
@@ -43,7 +43,7 @@
 
     <TextView
         android:id="@+id/textView_called_progress_5"
-        android:layout_width="120dp"
+        android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="10dp"
@@ -65,7 +65,7 @@
 
     <TextView
         android:id="@+id/textView_called_progress_4"
-        android:layout_width="120dp"
+        android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="10dp"
@@ -87,7 +87,7 @@
 
     <TextView
         android:id="@+id/textView_called_progress_3"
-        android:layout_width="120dp"
+        android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="10dp"
@@ -109,7 +109,7 @@
 
     <TextView
         android:id="@+id/textView_called_progress_2"
-        android:layout_width="120dp"
+        android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="10dp"
@@ -206,7 +206,7 @@
 
     <TextView
         android:id="@+id/textView_called_progress_1"
-        android:layout_width="120dp"
+        android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginTop="100dp"
         android:layout_marginEnd="10dp"
