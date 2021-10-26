@@ -18,6 +18,7 @@ public class Activity_extra_points extends AppCompatActivity {
     private String[] names;
     private boolean[] risky_zero_returns;
     private boolean risky_zero;
+    private int round;
 
     private int[] bonus_points;
     private Intent intent_return;
@@ -57,6 +58,7 @@ public class Activity_extra_points extends AppCompatActivity {
         setContentView(R.layout.activity_extra_points);
         Intent get_Intent = getIntent();
         this.number_of_players = get_Intent.getIntExtra("number_of_players",3);
+        this.round = get_Intent.getIntExtra("round",1);
         this.names = get_Intent.getStringArrayExtra("names");
         boolean[] risky_zeros = get_Intent.getBooleanArrayExtra("risky_zeros");
         this.risky_zero = get_Intent.getBooleanExtra("risky_zero",false);
@@ -120,7 +122,7 @@ public class Activity_extra_points extends AppCompatActivity {
         for (int i = 0; i<this.number_of_players;i++){
             this.risky_zero_returns[i] = false;
 
-            if(risky_zeros[i] || !this.risky_zero){
+            if(risky_zeros[i] || !this.risky_zero || this.round <6){
                 this.checkBoxes[i].setFocusable(false);
                 this.checkBoxes[i].setClickable(false);
                 this.checkBoxes[i].setVisibility(View.INVISIBLE);

@@ -289,6 +289,7 @@ public class Activity_game_screen_terminal extends AppCompatActivity {
                     this.intent_bonus_points_screen.putExtra("names",this.names);
                     this.intent_bonus_points_screen.putExtra("risky_zero",this.risky_zero);
                     this.intent_bonus_points_screen.putExtra("risky_zeros",this.risky_zeros);
+                    this.intent_bonus_points_screen.putExtra("round",this.game.get_round());
                     startActivityForResult(this.intent_bonus_points_screen,100);
                 }
                 break;
