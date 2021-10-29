@@ -10,7 +10,7 @@
     <SeekBar
         android:id="@+id/seekBar7"
         style="@android:style/Widget.SeekBar"
-        android:layout_width="120dp"
+        android:layout_width="155dp"
         android:layout_height="30dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="30dp"
@@ -32,7 +32,7 @@
     <SeekBar
         android:id="@+id/seekBar6"
         style="@android:style/Widget.SeekBar"
-        android:layout_width="120dp"
+        android:layout_width="155dp"
         android:layout_height="30dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="30dp"
@@ -54,7 +54,7 @@
     <SeekBar
         android:id="@+id/seekBar5"
         style="@android:style/Widget.SeekBar"
-        android:layout_width="120dp"
+        android:layout_width="155dp"
         android:layout_height="30dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="30dp"
@@ -76,7 +76,7 @@
     <SeekBar
         android:id="@+id/seekBar4"
         style="@android:style/Widget.SeekBar"
-        android:layout_width="120dp"
+        android:layout_width="155dp"
         android:layout_height="30dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="30dp"
@@ -98,7 +98,7 @@
     <SeekBar
         android:id="@+id/seekBar3"
         style="@android:style/Widget.SeekBar"
-        android:layout_width="120dp"
+        android:layout_width="155dp"
         android:layout_height="30dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="30dp"
@@ -190,7 +190,7 @@
     <SeekBar
         android:id="@+id/seekBar1"
         style="@android:style/Widget.SeekBar"
-        android:layout_width="120dp"
+        android:layout_width="155dp"
         android:layout_height="30dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="100dp"
@@ -213,11 +213,11 @@
         android:id="@+id/textView_error"
         android:layout_width="300dp"
         android:layout_height="39dp"
-        android:layout_marginTop="48dp"
         android:layout_marginEnd="50dp"
+        android:layout_marginBottom="30dp"
         android:fontFamily="@font/calligraffitti"
         android:textAlignment="center"
         android:textColor="#FDFDFD"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar7" />
+        app:layout_constraintBottom_toTopOf="@+id/Button_return_actual_tricks"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

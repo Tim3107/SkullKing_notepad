@@ -35,7 +35,7 @@
         android:id="@+id/seekbar_textview"
         android:layout_width="63dp"
         android:layout_height="39dp"
-        android:layout_marginStart="175dp"
+        android:layout_marginStart="150dp"
         android:text="6"
         android:textAlignment="center"
         android:textColor="@color/white"

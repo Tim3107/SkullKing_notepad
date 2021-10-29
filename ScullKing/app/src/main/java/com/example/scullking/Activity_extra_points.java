@@ -52,6 +52,8 @@ public class Activity_extra_points extends AppCompatActivity {
 
     private Button button_set_bonus;
 
+    private TextView textView_exception;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,6 +93,7 @@ public class Activity_extra_points extends AppCompatActivity {
         this.checkBoxes = new CheckBox[]{this.checkBox_1,this.checkBox_2,this.checkBox_3,this.checkBox_4,this.checkBox_5,this.checkBox_6};
 
         this.button_set_bonus = (Button) this.findViewById(R.id.Button_bonus_set);
+        this.textView_exception = (TextView) this.findViewById(R.id.textView_exception);
 
         this.bonus_points = new int[this.number_of_players];
         this.risky_zero_returns = new boolean[this.number_of_players];
@@ -137,19 +140,24 @@ public class Activity_extra_points extends AppCompatActivity {
     }
 
     public void get_Bonus(){
-        for (int i = 0;i<this.number_of_players;i++){
-            this.bonus_points[i] = Integer.valueOf(this.editTexts_bonus[i].getText().toString());
-            this.risky_zero_returns[i] = this.checkBoxes[i].isChecked();
+        try {
+            for (int i = 0; i < this.number_of_players; i++) {
+                this.bonus_points[i] = Integer.valueOf(this.editTexts_bonus[i].getText().toString());
+                this.risky_zero_returns[i] = this.checkBoxes[i].isChecked();
+            }
+
+
+            Intent intent_return = new Intent();
+            intent_return.putExtra("bonus_points", this.bonus_points);
+            intent_return.putExtra("risky_zeros", this.risky_zero_returns);
+            setResult(Activity.RESULT_OK, intent_return);
+            this.finish();
+
         }
-
-
-        Intent intent_return = new Intent();
-        intent_return.putExtra("bonus_points",this.bonus_points);
-        intent_return.putExtra("risky_zeros",this.risky_zero_returns);
-        setResult(Activity.RESULT_OK,intent_return);
-        this.finish();
-
-
+        catch (Exception NumberFormatException){
+            this.textView_exception.setText("A given String is not convertible to an integer.\n " +
+                    "Please change your input.");
+        }
     }
 
 

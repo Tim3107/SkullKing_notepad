@@ -262,8 +262,23 @@ public class Activity_game_screen_terminal extends AppCompatActivity {
     }
 
     public void set_names(){
+        int anzahl_characters = 0;
         for (int i = 0;i<this.number_of_players;i++){
-            this.textView_names[i].setText(this.names[i]);
+            anzahl_characters = this.names[i].length();
+            if(anzahl_characters<3){
+                this.textView_names[i].setText(this.names[i]);
+            }
+
+            else if(anzahl_characters<5){
+                this.textView_names[i].setTextSize(8);
+                this.textView_names[i].setText(this.names[i]);
+            }
+
+            else{
+                this.textView_names[i].setTextSize(6);
+                this.textView_names[i].setText(this.names[i]);
+            }
+            //this.textView_names[i].setText(this.names[i].substring(0,1));
         }
     }
 

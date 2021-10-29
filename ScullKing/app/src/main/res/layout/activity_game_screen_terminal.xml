@@ -1153,8 +1153,8 @@
 
     <Button
         android:id="@+id/button_next_round"
-        android:layout_width="170dp"
-        android:layout_height="56dp"
+        android:layout_width="178dp"
+        android:layout_height="63dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="30dp"
@@ -1168,9 +1168,8 @@
         android:layout_width="147dp"
         android:layout_height="59dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="36dp"
-        android:layout_marginBottom="10dp"
-        android:layout_toStartOf="@+id/button_next_round"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="11dp"
         android:text="Correct" />
 
 </RelativeLayout>
