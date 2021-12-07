@@ -1,16 +1,36 @@
 package com.example.scullking;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.io.Writer;
+import java.util.Calendar;
+
 public class Activity_game_screen_terminal extends AppCompatActivity {
+    private static final int REQUEST_EXTERNAL_STORAGE = 1;
+    private static String[] PERMISSIONS_STORAGE = {
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
+    };
     private int number_of_players;
     private boolean risky_zero;
     private boolean[] risky_zeros;
@@ -22,6 +42,7 @@ public class Activity_game_screen_terminal extends AppCompatActivity {
     private int[] actual_tricks;
     private Button button_next_round;
     private Button button_correction;
+    private Button button_save;
     private Intent intent_called_tricks;
     private Intent intent_actual_tricks;
     private Intent intent_end_screen;
@@ -219,6 +240,20 @@ public class Activity_game_screen_terminal extends AppCompatActivity {
         Intent intent_got = getIntent();
 
         this.button_next_round = (Button) this.findViewById(R.id.button_next_round);
+        this.button_save = (Button) this.findViewById(R.id.button_save);
+
+        this.button_save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    save_game();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
 
         this.button_next_round.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -345,7 +380,6 @@ public class Activity_game_screen_terminal extends AppCompatActivity {
                         this.intent_end_screen.putExtra("sorted_points",sorted_points);
                         this.intent_end_screen.putExtra("number_of_players",this.number_of_players);
                         startActivityForResult(this.intent_end_screen,11);
-
                     }
                 }
             break;
@@ -383,6 +417,60 @@ public class Activity_game_screen_terminal extends AppCompatActivity {
             for (int i = 0; i < this.number_of_players; i++) {
                 this.textViews[this.game.get_round() - 1][i].setText("");
             }
+        }
+    }
+
+    public void save_game() throws IOException {
+
+
+
+        int year = Calendar.getInstance().get(Calendar.YEAR);
+        int month = Calendar.getInstance().get(Calendar.MONTH)+1;
+        int day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+        int hour = Calendar.getInstance().get(Calendar.HOUR);
+        int minute = Calendar.getInstance().get(Calendar.MINUTE);
+
+        String filename = Integer.toString(year) + "_" + Integer.toString(month) + "_" + Integer.toString(day) + "_" + Integer.toString(hour) + "_" + Integer.toString(minute);
+        //File path = new File(this.getFilesDir(), "textfiles");
+        this.verifyStoragePermissions(this);
+        java.io.File path = new java.io.File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM) + "/"+filename+".txt");
+        path.createNewFile();
+        //File file = new File(path, "/"+"Tim"+".txt");
+
+        path.setWritable(true);
+
+        FileOutputStream fOut = new FileOutputStream(path);
+        OutputStreamWriter myOutWriter = new OutputStreamWriter(fOut);
+
+
+
+        myOutWriter.append(Integer.toString(this.number_of_players)+"\n");
+        myOutWriter.append(Integer.toString(this.game.get_round())+"\n");
+        for (int i = 0;i<this.number_of_players;i++){
+
+            myOutWriter.append(this.names[i]+"|");
+            for (int j = 0;j<this.game.get_round();j++){
+                myOutWriter.append(Integer.toString(this.players[i].get_points(j))+"|");
+            }
+            myOutWriter.append("\n");
+        }
+
+
+        myOutWriter.close();
+        fOut.close();
+    }
+
+    public static void verifyStoragePermissions(Activity activity) {
+        // Check if we have write permission
+        int permission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+        if (permission != PackageManager.PERMISSION_GRANTED) {
+            // We don't have permission so Prompt the user
+            ActivityCompat.requestPermissions(
+                    activity,
+                    PERMISSIONS_STORAGE,
+                    REQUEST_EXTERNAL_STORAGE
+            );
         }
     }
 }

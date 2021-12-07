@@ -21,6 +21,10 @@ public class Player {
         return this.points;
     }
 
+    public int get_points(int round){
+        return this.points_array[round];
+    }
+
     public void set_risky_zero(){
         this.risky_zero = true;
     }

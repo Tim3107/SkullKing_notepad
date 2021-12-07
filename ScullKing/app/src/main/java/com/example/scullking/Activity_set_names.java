@@ -9,8 +9,12 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class Activity_set_names extends AppCompatActivity {
 
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
     private int anzahl_spieler;
 
     private String[] names;
@@ -22,9 +26,15 @@ public class Activity_set_names extends AppCompatActivity {
     private EditText editText_player_5;
     private EditText editText_player_6;
 
+    private EditText create_player;
+
     private  EditText[] editTexts;
 
     private Button button_set_names;
+    private Button button_create_player;
+    private Button button_choose_players;
+
+    private Intent intent_choose_players;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +51,8 @@ public class Activity_set_names extends AppCompatActivity {
         editText_player_5 = (EditText) this.findViewById(R.id.editTextTextPersonName5);
         editText_player_6 = (EditText) this.findViewById(R.id.editTextTextPersonName6);
 
+        create_player = (EditText) this.findViewById(R.id.create_player_name);
+
         editTexts = new EditText[]{editText_player_1,editText_player_2,editText_player_3,editText_player_4,editText_player_5,editText_player_6};
 
         for (int i = this.anzahl_spieler;i<6;i++){
@@ -48,6 +60,8 @@ public class Activity_set_names extends AppCompatActivity {
             editTexts[i].setClickable(false);
             editTexts[i].setVisibility(View.INVISIBLE);
         }
+
+        intent_choose_players = new Intent(this,Activity_choose_players.class);
 
         button_set_names = (Button) this.findViewById(R.id.button_set_names);
         button_set_names.setOnClickListener(new View.OnClickListener() {
@@ -68,9 +82,40 @@ public class Activity_set_names extends AppCompatActivity {
             }
         });
 
+        button_create_player = (Button) this.findViewById(R.id.button_create_player);
+        button_create_player.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                create_player(create_player.getText().toString());
+            }
+        });
+
+        button_choose_players = (Button) this.findViewById(R.id.buttonchoosePlayer);
+        button_choose_players.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivityForResult(intent_choose_players,3107);
+            }
+        });
 
 
 
+
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch(requestCode) {
+            case (3107) : {
+                if (resultCode == Activity.RESULT_OK) {
+                    // TODO Extract the data returned from the child Activity.
+
+                }
+                break;
+            }
+
+        }
     }
     public void set_names(String[] names){
         this.names = names;
@@ -78,6 +123,20 @@ public class Activity_set_names extends AppCompatActivity {
 
     public String[] get_names(){
         return this.names;
+    }
+
+    public void create_player(String name){
+        DatabaseReference set_Punkte = database.getReference(name+"/Punkte");
+        DatabaseReference set_Siege = database.getReference(name+"/Siege");
+        DatabaseReference set_Spiele = database.getReference(name+"/Spiele");
+        DatabaseReference set_Tore = database.getReference(name+"/Tore");
+        DatabaseReference set_Name = database.getReference(name+"/Name");
+
+        set_Punkte.setValue(0);
+        set_Siege.setValue(1);
+        set_Spiele.setValue(1);
+        set_Tore.setValue(10);
+        set_Name.setValue(name);
     }
 
 }

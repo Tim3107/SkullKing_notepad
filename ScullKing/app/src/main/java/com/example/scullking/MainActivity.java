@@ -1,15 +1,43 @@
 package com.example.scullking;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.DatabaseRegistrar;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+
 public class MainActivity extends AppCompatActivity {
+    FirebaseStorage storage;
+    StorageReference storageReference;
+
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+    DatabaseReference myRef_name = database.getReference("Tim/Punkte");
+    DatabaseReference myRef_value = database.getReference("Test");
 
     private Game game;
 
@@ -38,6 +66,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         MainActivity hhh = new MainActivity();
 
+        storage = FirebaseStorage.getInstance();
+        storageReference = storage.getReference();
+
         this.intent_player_number = new Intent(this,Activity_set_players.class);
         this.intent_player_names = new Intent(this, Activity_set_names.class);
         this.intent_game_terminal = new Intent(this, Activity_game_screen_terminal.class);
@@ -46,6 +77,34 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 open_activity_set_players();
+
+            }
+        });
+
+    }
+
+    protected void onStart(){
+        super.onStart();
+        myRef_name.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        myRef_value.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
@@ -78,7 +137,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void open_activity_set_players(){
+        // Create a storage reference from our app
+        StorageReference storageRef = storage.getReference();
+
+        // Create a reference to "mountains.jpg"
+        StorageReference mountainsRef = storageRef.child("Tim.txt");
+
+        Uri file = Uri.fromFile(new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM) + "/"+"Tim"+".txt"));
+        StorageReference testing = storageRef.child(file.getLastPathSegment());
+        mountainsRef.putFile(file);
+
         startActivityForResult(this.intent_player_number,0);
+
+        myRef_value.setValue(2);
+        myRef_name.setValue(100);
     }
 
     public void open_activity_set_names(){
@@ -96,6 +168,11 @@ public class MainActivity extends AppCompatActivity {
     public void close_Intent(){
         finish();
     }
+
+
+
+
+
 
 
 

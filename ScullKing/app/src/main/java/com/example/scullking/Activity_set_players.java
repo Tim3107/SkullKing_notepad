@@ -11,6 +11,9 @@ import android.widget.CheckBox;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class Activity_set_players extends Activity {
 
     private Game game;
@@ -70,6 +73,8 @@ public class Activity_set_players extends Activity {
     public String[] get_names(){
         return this.names;
     }
+
+
 
 
 
