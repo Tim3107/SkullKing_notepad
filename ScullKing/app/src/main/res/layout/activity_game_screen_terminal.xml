@@ -33,85 +33,35 @@
 
             </TextView>
 
-            <TextView
-                android:id="@+id/name_1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:background="@android:color/transparent"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:textColor="@color/white"
-                android:textSize="12sp">
+            <Button
+                android:id="@+id/name1"
+                android:layout_width="40dp"
+                android:layout_height="match_parent" />
 
+            <Button
+                android:id="@+id/name2"
+                android:layout_width="40dp"
+                android:layout_height="match_parent" />
 
-            </TextView>
+            <Button
+                android:id="@+id/name3"
+                android:layout_width="40dp"
+                android:layout_height="match_parent" />
 
-            <TextView
-                android:id="@+id/name_2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:background="@android:color/transparent"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:textColor="@color/white"
-                android:textSize="12sp">
+            <Button
+                android:id="@+id/name4"
+                android:layout_width="40dp"
+                android:layout_height="match_parent" />
 
+            <Button
+                android:id="@+id/name5"
+                android:layout_width="40dp"
+                android:layout_height="match_parent" />
 
-            </TextView>
-
-            <TextView
-                android:id="@+id/name_3"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:background="@android:color/transparent"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:textColor="@color/white"
-                android:textSize="12sp">
-
-
-            </TextView>
-
-            <TextView
-                android:id="@+id/name_4"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:textColor="@color/white"
-                android:textSize="12sp">
-
-
-            </TextView>
-
-            <TextView
-                android:id="@+id/name_5"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:textColor="@color/white"
-                android:textSize="12sp">
-
-
-            </TextView>
-
-            <TextView
-                android:id="@+id/name_6"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:gravity="center_horizontal"
-                android:padding="10sp"
-                android:textColor="@color/white"
-                android:textSize="12sp">
-
-            </TextView>
+            <Button
+                android:id="@+id/name6"
+                android:layout_width="40dp"
+                android:layout_height="match_parent" />
 
         </TableRow>
 

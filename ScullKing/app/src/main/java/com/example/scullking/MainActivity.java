@@ -48,7 +48,10 @@ public class MainActivity extends AppCompatActivity {
 
     private Button button_new_game;
 
+    private boolean save_to_server = false;
+    private String server_root;
     private int number_of_players;
+    private String[] server_names;
     private boolean risky_zero = false;
     private String[] names;
     private Gui gui;
@@ -59,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
     private Button button_input_new_tricks;
     private Button button_set_names;
     private Button button_set_players;
+    private int number_of_server_players;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,6 +123,10 @@ public class MainActivity extends AppCompatActivity {
                     // TODO Extract the data returned from the child Activity.
                     this.number_of_players = data.getIntExtra("number_of_players",3);
                     this.risky_zero = data.getBooleanExtra("risky_zero",false);
+                    this.server_root = data.getStringExtra("server_root");
+                    if(this.server_root != ""){
+                        this.save_to_server = true;
+                    }
                     open_activity_set_names();
                 }
                 break;
@@ -128,6 +136,8 @@ public class MainActivity extends AppCompatActivity {
                 if (resultCode == Activity.RESULT_OK) {
                     // TODO Extract the data returned from the child Activity.
                     this.names = data.getStringArrayExtra("names");
+                    this.server_names = data.getStringArrayExtra("server_names");
+                    this.number_of_server_players = data.getIntExtra("number_of_server_players",3);
                     open_game_screen_terminal();
                 }
                 break;
@@ -138,6 +148,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void open_activity_set_players(){
         // Create a storage reference from our app
+        /*
         StorageReference storageRef = storage.getReference();
 
         // Create a reference to "mountains.jpg"
@@ -147,14 +158,16 @@ public class MainActivity extends AppCompatActivity {
         StorageReference testing = storageRef.child(file.getLastPathSegment());
         mountainsRef.putFile(file);
 
+         */
+
         startActivityForResult(this.intent_player_number,0);
 
-        myRef_value.setValue(2);
-        myRef_name.setValue(100);
+
     }
 
     public void open_activity_set_names(){
         this.intent_player_names.putExtra("number_of_players",this.number_of_players);
+        this.intent_player_names.putExtra("server_root",this.server_root);
         startActivityForResult(this.intent_player_names,1);
     }
 
@@ -162,6 +175,9 @@ public class MainActivity extends AppCompatActivity {
         this.intent_game_terminal.putExtra("number_of_players",this.number_of_players);
         this.intent_game_terminal.putExtra("risky_zero",this.risky_zero);
         this.intent_game_terminal.putExtra("names",this.names);
+        this.intent_game_terminal.putExtra("server_names",server_names);
+        this.intent_game_terminal.putExtra("server_root",this.server_root);
+        this.intent_game_terminal.putExtra("number_of_server_players",this.number_of_server_players);
         startActivityForResult(this.intent_game_terminal,2);
     }
 

@@ -76,21 +76,30 @@ public class Game {
 
     //
     public int[] compute_points_list(int[] called_tricks, int[] actual_tricks, int[] bonus_points,boolean[] risky_zeros){
+        System.out.println("Die Runde beträgt in game: " + this.round);
         int[] return_points = new int[this.number_of_players];
         for (int i=0;i<this.number_of_players;i++){
-            return_points[i] = this.compute_points(called_tricks[i],actual_tricks[i],bonus_points[i],risky_zeros[i]);
+            return_points[i] = this.compute_points(called_tricks[i],actual_tricks[i],bonus_points[i],risky_zeros[i],i);
+            player_list[i].set_called_tricks(called_tricks[i],this.round);
+            if(called_tricks[i]==actual_tricks[i]){
+                player_list[i].set_reached_tricks(this.round);
+            }
+
         }
         return return_points;
     }
-//ScullKing and Mermaid points are missing yet
-    public int compute_points(int called_tricks,int actual_tricks, int bonus_points, boolean risky_zero){
+
+
+    public int compute_points(int called_tricks,int actual_tricks, int bonus_points, boolean risky_zero,int playerNumber){
         if(called_tricks == 0){
             if(actual_tricks == 0){
                 if(!risky_zero){
                     return this.round*10;
                 }
                 else{
+                    this.player_list[playerNumber].setBonusPoints(50);
                     return this.round*10 + 50;
+
                 }
 
             }
@@ -105,6 +114,7 @@ public class Game {
         }
         else{
             if(called_tricks == actual_tricks){
+                this.player_list[playerNumber].setBonusPoints(bonus_points);
                 return 20*called_tricks + bonus_points;
             }
             else{
@@ -189,5 +199,14 @@ public class Game {
             this.bonus_points[i] = 0;
         }
     }
+
+    public int[] get_points(){
+        int[] return_points = new int[this.number_of_players];
+        for (int i = 0;i<this.number_of_players;i++){
+            return_points[i] = player_list[i].get_points();
+        }
+        return return_points;
+    }
+
 
 }

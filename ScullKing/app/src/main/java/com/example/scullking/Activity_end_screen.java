@@ -1,17 +1,32 @@
 package com.example.scullking;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Activity_end_screen extends AppCompatActivity {
 
+
+
     private int number_of_players;
+    private String[] server_names;
+    private String[] sorted_names;
+    private Boolean[] winner;
+    private int[] sorted_points;
 
     private Button end_button;
     private TextView end_textView;
@@ -61,13 +76,15 @@ public class Activity_end_screen extends AppCompatActivity {
         get_intent = getIntent();
         int points = get_intent.getIntExtra("points",0);
         String player_name = get_intent.getStringExtra("name");
-        int[] sorted_points = get_intent.getIntArrayExtra("sorted_points");
-        String[] sorted_names = get_intent.getStringArrayExtra("sorted_names");
+        this.sorted_points = get_intent.getIntArrayExtra("sorted_points");
+        this.sorted_names = get_intent.getStringArrayExtra("sorted_names");
         this.number_of_players = get_intent.getIntExtra("number_of_players",3);
+        this.server_names = get_intent.getStringArrayExtra("server_names");
 
         this.end_textView.setText("Yo-Ho-Ho the next battle is still waiting");
 
         this.end_button.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onClick(View v) {
                 setResult(Activity.RESULT_OK);
@@ -84,8 +101,10 @@ public class Activity_end_screen extends AppCompatActivity {
             this.textViews_names[i].setClickable(false);
             this.textViews_names[i].setVisibility(View.INVISIBLE);
         }
-        this.setEnd_textView(sorted_points,sorted_names);
+        this.setEnd_textView(sorted_points,this.sorted_names);
     }
+
+
 
     public void setEnd_textView(int[] points, String[] names){
         for (int i = 0; i<this.number_of_players;i++){

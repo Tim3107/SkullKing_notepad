@@ -1,5 +1,7 @@
 package com.example.scullking;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
@@ -8,12 +10,20 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
+import com.google.firebase.database.ValueEventListener;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -23,29 +33,45 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.io.Writer;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Map;
 
 public class Activity_game_screen_terminal extends AppCompatActivity {
+    FirebaseDatabase database;
+    DatabaseReference myRef_name;
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
     private static String[] PERMISSIONS_STORAGE = {
             Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE
     };
     private int number_of_players;
+    
+    private int number_of_server;
     private boolean risky_zero;
     private boolean[] risky_zeros;
+    private boolean[] server_players;
+    private String server_root = "";
     private int[] bonus_points = {1,2,3,4,5,6};
+    private boolean[] winner;
     private String[] names;
+    private String[] sorted_names;
+    private String[] server_names;
     private Player[] players;
+    private String[][] stats;
     private Game game;
     private int[] called_tricks;
     private int[] actual_tricks;
+    private int[] sorted_points;
     private Button button_next_round;
     private Button button_correction;
     private Button button_save;
     private Intent intent_called_tricks;
     private Intent intent_actual_tricks;
     private Intent intent_end_screen;
+    private Intent intent_show_stats;
     private Intent intent_bonus_points_screen;
     private int[][] text_view_IDs = new int[][]{
         {18,19,25,26,21,24},
@@ -138,7 +164,17 @@ public class Activity_game_screen_terminal extends AppCompatActivity {
     private TextView textView_name_5;
     private TextView textView_name_6;
 
-    private TextView[] textView_names = new TextView[6];
+    private Button button_player_1;
+    private Button button_player_2;
+    private Button button_player_3;
+    private Button button_player_4;
+    private Button button_player_5;
+    private Button button_player_6;
+
+    private Button[] buttons_player_names;
+    private int number_of_server_players;
+
+    //private TextView[] textView_names = new TextView[6];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -227,7 +263,7 @@ public class Activity_game_screen_terminal extends AppCompatActivity {
             {textView91,textView92,textView93,textView94,textView95,textView96},
             {textView101,textView102,textView103,textView104,textView105,textView106}
         };
-
+/*
         this.textView_name_1 = (TextView) this.findViewById(R.id.name_1);
         this.textView_name_2 = (TextView) this.findViewById(R.id.name_2);
         this.textView_name_3 = (TextView) this.findViewById(R.id.name_3);
@@ -235,9 +271,31 @@ public class Activity_game_screen_terminal extends AppCompatActivity {
         this.textView_name_5 = (TextView) this.findViewById(R.id.name_5);
         this.textView_name_6 = (TextView) this.findViewById(R.id.name_6);
 
-        this.textView_names = new TextView[]{this.textView_name_1,this.textView_name_2,this.textView_name_3,this.textView_name_4,this.textView_name_5,this.textView_name_6};
+ */
+
+        //this.textView_names = new TextView[]{this.textView_name_1,this.textView_name_2,this.textView_name_3,this.textView_name_4,this.textView_name_5,this.textView_name_6};
+
 
         Intent intent_got = getIntent();
+        this.server_root = intent_got.getStringExtra("server_root");
+        if(this.server_root != ""){
+            this.database = FirebaseDatabase.getInstance();
+            this.myRef_name = database.getReference().child(this.server_root);
+            this.myRef_name.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if (!server_root.isEmpty()) {
+                        System.out.println("hier"+server_root+"hier");
+                        collectPlayerstats((Map<String, Object>) snapshot.getValue());
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+        }
 
         this.button_next_round = (Button) this.findViewById(R.id.button_next_round);
         this.button_save = (Button) this.findViewById(R.id.button_save);
@@ -271,6 +329,10 @@ public class Activity_game_screen_terminal extends AppCompatActivity {
 
         this.number_of_players = intent_got.getIntExtra("number_of_players",3);
         this.names = intent_got.getStringArrayExtra("names");
+        this.server_names = intent_got.getStringArrayExtra("server_names");
+        this.number_of_server_players = intent_got.getIntExtra("number_of_server_players",3);
+
+        this.stats = new String[this.number_of_players][11];
         this.risky_zero = intent_got.getBooleanExtra("risky_zero",false);
         players = new Player[this.number_of_players];
         this.risky_zeros = new boolean[this.number_of_players];
@@ -281,10 +343,73 @@ public class Activity_game_screen_terminal extends AppCompatActivity {
         this.intent_end_screen = new Intent(this,Activity_end_screen.class);
         this.intent_called_tricks = new Intent(this,Activity_called_tricks.class);
         this.intent_actual_tricks = new Intent(this,Activity_set_actual_tricks.class);
+        this.intent_show_stats = new Intent(this,Activity_show_stats.class);
         this.intent_bonus_points_screen = new Intent(this,Activity_extra_points.class);
         this.game = new Game(this.number_of_players,this.players,this.intent_called_tricks,this.risky_zero);
 
+        this.button_player_1 = (Button) this.findViewById(R.id.name1);
+        this.button_player_2 = (Button) this.findViewById(R.id.name2);
+        this.button_player_3 = (Button) this.findViewById(R.id.name3);
+        this.button_player_4 = (Button) this.findViewById(R.id.name4);
+        this.button_player_5 = (Button) this.findViewById(R.id.name5);
+        this.button_player_6 = (Button) this.findViewById(R.id.name6);
+
+        this.buttons_player_names = new Button[]{button_player_1,button_player_2,button_player_3,button_player_4,button_player_5,button_player_6};
+
+        for (int i = 0;i<this.number_of_players;i++){
+            int finalI_loop = i;
+            this.buttons_player_names[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(finalI_loop<number_of_server_players) {
+                        show_player_stats(finalI_loop);
+                    }
+
+
+                }
+            });
+        }
+
         this.set_names();
+
+
+    }
+
+    private void collectPlayerstats(Map<String, Object> players) {
+            //iterate through each user, ignoring their UID
+        System.out.println(this.server_root+"serverroot");
+        ArrayList<String> temp = new ArrayList<>(Arrays.asList(this.server_names));
+        int i = 0;
+        int index = 0;
+            for (Map.Entry<String, Object> entry : players.entrySet()){
+                if(Arrays.asList(this.server_names).contains(String.valueOf(((Map) entry.getValue()).get("name")))) {
+                    //Get user map
+                    Map singleplayer = (Map) entry.getValue();
+                    index = (temp.indexOf(singleplayer.get("name")));
+                    //Get phone field and append to list
+                    this.stats[index][0] = String.valueOf(singleplayer.get("called tricks"));
+                    this.stats[index][1] = String.valueOf(singleplayer.get("correct called tricks"));
+                    this.stats[index][2] = String.valueOf(singleplayer.get("points"));
+                    this.stats[index][3] = String.valueOf(singleplayer.get("name"));
+                    this.stats[index][4] = String.valueOf(singleplayer.get("risky zeros"));
+                    this.stats[index][5] = String.valueOf(singleplayer.get("failed zeros"));
+                    this.stats[index][6] = String.valueOf(singleplayer.get("wins"));
+                    this.stats[index][7] = String.valueOf(singleplayer.get("called zeros"));
+                    this.stats[index][8] = String.valueOf(singleplayer.get("played games"));
+                    this.stats[index][9] = String.valueOf(singleplayer.get("correct predicted rounds"));
+                    this.stats[index][10] = String.valueOf(singleplayer.get("bonus points"));
+                    i++;
+                }
+            }
+            this.number_of_server = i;
+    }
+
+    private void show_player_stats(int number_of_player) {
+        String[] show_stats;
+        if(this.server_root != ""){
+            this.intent_show_stats.putExtra("strings_to_show",this.stats[number_of_player]);
+        }
+        startActivity(this.intent_show_stats);
     }
 
     public void start_new_round(){
@@ -301,24 +426,23 @@ public class Activity_game_screen_terminal extends AppCompatActivity {
         for (int i = 0;i<this.number_of_players;i++){
             anzahl_characters = this.names[i].length();
             if(anzahl_characters<3){
-                this.textView_names[i].setText(this.names[i]);
+                this.buttons_player_names[i].setText(this.names[i]);
             }
 
             else if(anzahl_characters<5){
-                this.textView_names[i].setTextSize(8);
-                this.textView_names[i].setText(this.names[i]);
+                this.buttons_player_names[i].setTextSize(8);
+                this.buttons_player_names[i].setText(this.names[i]);
             }
 
             else{
-                this.textView_names[i].setTextSize(6);
-                this.textView_names[i].setText(this.names[i]);
+                this.buttons_player_names[i].setTextSize(6);
+                this.buttons_player_names[i].setText(this.names[i]);
             }
             //this.textView_names[i].setText(this.names[i].substring(0,1));
         }
     }
 
-
-
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
@@ -359,7 +483,7 @@ public class Activity_game_screen_terminal extends AppCompatActivity {
                     this.bonus_points = data.getIntArrayExtra("bonus_points");
                     this.game.set_bonus_points(this.bonus_points,risky_zeros_bonus);
                     this.update_risky_zeros(risky_zeros_bonus);
-
+                    System.out.println("Die Runde beträgt: " + this.game.get_round());
                     game.run_round();
                     this.set_points_in_table();
                     this.game.increment_round();
@@ -370,8 +494,8 @@ public class Activity_game_screen_terminal extends AppCompatActivity {
                         this.intent_end_screen.putExtra("points",100);
                         Player sorted_players[] = new Player[this.number_of_players];
                         sorted_players = this.game.sort_by_points();
-                        String sorted_names[] = new String[this.number_of_players];
-                        int sorted_points[] = new int[this.number_of_players];
+                        this.sorted_names = new String[this.number_of_players];
+                        this.sorted_points = new int[this.number_of_players];
                         for (int i = 0;i<this.number_of_players;i++){
                             sorted_names[i] = sorted_players[i].get_name();
                             sorted_points[i] = sorted_players[i].get_points();
@@ -379,6 +503,7 @@ public class Activity_game_screen_terminal extends AppCompatActivity {
                         this.intent_end_screen.putExtra("sorted_names",sorted_names);
                         this.intent_end_screen.putExtra("sorted_points",sorted_points);
                         this.intent_end_screen.putExtra("number_of_players",this.number_of_players);
+                        this.intent_end_screen.putExtra("server_names",this.server_names);
                         startActivityForResult(this.intent_end_screen,11);
                     }
                 }
@@ -387,7 +512,12 @@ public class Activity_game_screen_terminal extends AppCompatActivity {
 
             case (11) : {
                 if (resultCode == Activity.RESULT_OK) {
-                    finish();
+                    if(this.server_root != "") {
+                        upload_and_finish();
+                    }
+                    else{
+                        finish();
+                    }
 
                 }
                 break;
@@ -406,6 +536,7 @@ public class Activity_game_screen_terminal extends AppCompatActivity {
     public void update_risky_zeros(boolean[] risky_zeros_bonus) {
         for (int i = 0;i<this.number_of_players;i++){
             if(risky_zeros_bonus[i]){
+                this.players[i].set_risky_zero();
                 this.risky_zeros[i] = true;
             }
         }
@@ -416,6 +547,7 @@ public class Activity_game_screen_terminal extends AppCompatActivity {
             game.correction();
             for (int i = 0; i < this.number_of_players; i++) {
                 this.textViews[this.game.get_round() - 1][i].setText("");
+                this.risky_zeros[i] = players[i].get_risky_zero();
             }
         }
     }
@@ -472,6 +604,64 @@ public class Activity_game_screen_terminal extends AppCompatActivity {
                     REQUEST_EXTERNAL_STORAGE
             );
         }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    private void upload_and_finish(){
+        int[] final_points = this.game.get_points();
+        this.winner = new boolean[this.number_of_players];
+        get_winners();
+        ArrayList<String> arrayList_names = new ArrayList<>(Arrays.asList(this.server_names));
+        for(int i = 0;i<this.number_of_players;i++){
+            if(arrayList_names.contains(this.names[i])) {
+                DatabaseReference myref_local = myRef_name.child(this.names[i]).child("points");         //Points
+                myref_local.setValue(ServerValue.increment(final_points[i]));
+                myref_local = myRef_name.child(this.names[i]).child("played games");                     //Games
+                myref_local.setValue(ServerValue.increment(1));
+                if(this.winner[i]) {
+                    myref_local = myRef_name.child(this.names[i]).child("wins");                         //wins
+                    myref_local.setValue(ServerValue.increment(1));
+                }
+                myref_local = myRef_name.child(this.names[i]).child("called tricks");
+                myref_local.setValue(ServerValue.increment(this.players[i].called_tricks()));            //called_tricks
+                myref_local = myRef_name.child(this.names[i]).child("correct called tricks");
+                myref_local.setValue(ServerValue.increment(this.players[i].succesfully_called_tricks()));            //succesfully_called_tricks
+                myref_local = myRef_name.child(this.names[i]).child("failed zeros");
+                myref_local.setValue(ServerValue.increment(this.players[i].failed_zeros()));            //failed_zeros
+                myref_local = myRef_name.child(this.names[i]).child("called zeros");
+                myref_local.setValue(ServerValue.increment(this.players[i].called_zeros()));            //called_zeros
+                myref_local = myRef_name.child(this.names[i]).child("correct predicted rounds");
+                
+                myref_local.setValue(ServerValue.increment(this.players[i].correctPredictedRounds()));            //correct predicted rounds
+                myref_local = myRef_name.child(this.names[i]).child("risky zeros");
+                myref_local.setValue(ServerValue.increment(this.players[i].riskyZero()));            //correct predicted rounds
+                myref_local = myRef_name.child(this.names[i]).child("bonus points");
+                myref_local.setValue(ServerValue.increment(this.players[i].getBonusPoints()));            //correct predicted rounds
+
+
+            }
+        }
+
+        finish();
+    }
+
+    private void get_winners() {
+        this.winner = new boolean[this.number_of_players];
+        int max_value = 0;//getMax(this.sorted_points);
+        for (int i = 0;i<this.number_of_players;i++){
+            max_value = Math.max(max_value,this.sorted_points[i]);
+        }
+
+        for(int i = 0;i<this.number_of_players;i++){
+            if(this.sorted_points[i] == max_value){
+                this.winner[i] = true;
+            }
+            else {
+                this.winner[i] = false;
+            }
+
+        }
+
     }
 }
 

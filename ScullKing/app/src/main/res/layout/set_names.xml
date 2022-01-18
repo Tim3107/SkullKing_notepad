@@ -4,167 +4,160 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/blue_seven">
+    android:background="@color/black">
 
-    <Button
-        android:id="@+id/button_set_names"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="Done"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.916"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextTextPersonName1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="101dp"
-        android:clickable="false"
-        android:editable="true"
-        android:ems="10"
-        android:focusable="auto"
-        android:fontFamily="@font/calligraffitti"
-        android:inputType="textPersonName"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <EditText
-        android:id="@+id/editTextTextPersonName2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="101dp"
-        android:clickable="false"
-        android:editable="true"
-        android:ems="10"
-        android:focusable="auto"
-        android:fontFamily="@font/calligraffitti"
-        android:inputType="textPersonName"
-        android:textAlignment="center"
-        android:textColor="#FDFDFD"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName1" />
+        <EditText
+            android:id="@+id/editTextTextPersonName1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:clickable="false"
+            android:editable="true"
+            android:ems="10"
+            android:focusable="auto"
+            android:fontFamily="@font/calligraffitti"
+            android:inputType="textPersonName"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="29dp"
-        android:clickable="false"
-        android:editable="true"
-        android:ems="10"
-        android:focusable="auto"
-        android:fontFamily="@font/calligraffitti"
-        android:inputType="textPersonName"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+        <EditText
+            android:id="@+id/editTextTextPersonName2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:clickable="false"
+            android:editable="true"
+            android:ems="10"
+            android:focusable="auto"
+            android:fontFamily="@font/calligraffitti"
+            android:inputType="textPersonName"
+            android:textAlignment="center"
+            android:textColor="#FDFDFD" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="90dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="99dp"
-        android:clickable="false"
-        android:editable="true"
-        android:ems="10"
-        android:focusable="auto"
-        android:fontFamily="@font/calligraffitti"
-        android:inputType="textPersonName"
-        android:singleLine="false"
-        android:soundEffectsEnabled="false"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.433"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+        <EditText
+            android:id="@+id/editTextTextPersonName3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:clickable="false"
+            android:editable="true"
+            android:ems="10"
+            android:focusable="auto"
+            android:fontFamily="@font/calligraffitti"
+            android:inputType="textPersonName"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="101dp"
-        android:clickable="false"
-        android:editable="true"
-        android:ems="10"
-        android:focusable="auto"
-        android:fontFamily="@font/calligraffitti"
-        android:inputType="textPersonName"
-        android:textAlignment="center"
-        android:textColor="#FAFAFA"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName4" />
+        <EditText
+            android:id="@+id/editTextTextPersonName4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:clickable="false"
+            android:editable="true"
+            android:ems="10"
+            android:focusable="auto"
+            android:fontFamily="@font/calligraffitti"
+            android:inputType="textPersonName"
+            android:singleLine="false"
+            android:soundEffectsEnabled="false"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="101dp"
-        android:layout_marginBottom="127dp"
-        android:clickable="false"
-        android:editable="true"
-        android:ems="10"
-        android:focusable="auto"
-        android:fontFamily="@font/calligraffitti"
-        android:inputType="textPersonName"
-        android:textAlignment="center"
-        android:textColor="#FBFBFB"
-        app:layout_constraintBottom_toTopOf="@+id/button_set_names"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName5"
-        app:layout_constraintVertical_bias="0.072" />
+        <EditText
+            android:id="@+id/editTextTextPersonName5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:clickable="false"
+            android:editable="true"
+            android:ems="10"
+            android:focusable="auto"
+            android:fontFamily="@font/calligraffitti"
+            android:inputType="textPersonName"
+            android:textAlignment="center"
+            android:textColor="#FAFAFA" />
 
-    <Button
-        android:id="@+id/button_create_player"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginBottom="16dp"
-        android:text="create"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <EditText
+            android:id="@+id/editTextTextPersonName6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:clickable="false"
+            android:editable="true"
+            android:ems="10"
+            android:focusable="auto"
+            android:fontFamily="@font/calligraffitti"
+            android:inputType="textPersonName"
+            android:textAlignment="center"
+            android:textColor="#FBFBFB" />
 
-    <EditText
-        android:id="@+id/create_player_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginBottom="28dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/button_create_player"
-        app:layout_constraintStart_toStartOf="parent" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/buttonchoosePlayer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="19dp"
-        android:layout_marginBottom="20dp"
-        android:text="choosePlayer"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button_set_names" />
+            <Button
+                android:id="@+id/buttonchoosePlayer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="16dp"
+                android:layout_weight="1"
+                android:background="#000000"
+                android:text="choosePlayer"
+                android:textColor="#FAFAFA" />
+
+            <Button
+                android:id="@+id/button_set_names"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="16dp"
+                android:layout_weight="1"
+                android:background="#050000"
+                android:text="Done"
+                android:textColor="#FBFBFB" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button_create_player"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="17dp"
+                android:layout_weight="0.5"
+                android:background="#000000"
+                android:text="create"
+                android:textColor="#FFFFFF" />
+
+            <EditText
+                android:id="@+id/create_player_name"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_weight="0.5"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

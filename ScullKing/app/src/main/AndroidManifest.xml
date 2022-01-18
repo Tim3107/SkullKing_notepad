@@ -1,21 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.scullking">
-    <uses-permission android:name="Android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="Android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-
     <application
-        android:requestLegacyExternalStorage="true"
         android:allowBackup="true"
         android:icon="@mipmap/scullking"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/scullking_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ScullKing">
         <activity
+            android:name=".Activity_show_stats"
+            android:exported="true" />
+        <activity
             android:name=".Activity_extra_points"
+            android:exported="true" />
+        <activity
+            android:name=".Activity_choose_players"
             android:exported="true" />
         <activity
             android:name=".Activity_end_screen"
@@ -24,9 +30,9 @@
             android:name=".Activity_set_actual_tricks"
             android:exported="true" />
         <activity
-            android:screenOrientation="portrait"
             android:name=".Activity_game_screen_terminal"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
