@@ -38,7 +38,6 @@ public class Activity_choose_players extends AppCompatActivity {
     private ScrollView scrollViewPlayers;
     private TextView textView_toomuchplayers;
     private Button button_close;
-    private TextView textViewShow;
     Button b;
 
     @Override
@@ -50,7 +49,6 @@ public class Activity_choose_players extends AppCompatActivity {
         this.server_root = gotIntent.getStringExtra("server_root");
 
         this.textView_toomuchplayers = (TextView) findViewById(R.id.textView_toomuchplayers);
-        textViewShow = (TextView) findViewById(R.id.textView_show);
         scrollViewPlayers = (ScrollView) this.findViewById(R.id.scrollViiewPlayers);
         linearLayout = (LinearLayout) this.findViewById(R.id.test_linear);
         linearLayout.setOrientation(LinearLayout.VERTICAL);
